@@ -1,6 +1,6 @@
 # PillPal
 
-**Snap your pill bottles. Understand your medicines — in your own language.**
+**Snap your pill bottles. Understand your medicines in your own language!**
 
 PillPal is an AI medication assistant for patients and family caregivers. Photograph your pill bottles and discharge paperwork, and PillPal combines every medication into one list and gives you, in plain language and your own language:
 
