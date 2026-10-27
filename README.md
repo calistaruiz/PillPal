@@ -23,11 +23,22 @@ Everything can be **read aloud** for users with low literacy or low vision.
 
 ## How it works
 
+```mermaid
+flowchart LR
+    A["Photos<br/>bottles and<br/>discharge papers"] --> B["Read labels<br/>with confidence scores"]
+    B --> C["Match names<br/>RxNorm drug IDs"]
+    C --> D["Fetch FDA labels<br/>openFDA / DailyMed"]
+    D --> E["Safety checks<br/>interactions, duplicates"]
+    E --> F["Daily schedule"]
+    F --> G["Plain-language explanation<br/>translated, read aloud"]
+
+    classDef ai fill:#ccfbf1,stroke:#0f766e,color:#134e4a
+    classDef code fill:#f1f5f9,stroke:#64748b,color:#1e293b
+    class B,G ai
+    class A,C,D,E,F code
 ```
- Photos ──► Vision model ──► RxNorm ──► openFDA / DailyMed ──► Checks ──► Plain-language explainer
- (bottles,   reads labels,    standard     official label        duplicates,  translated, read aloud,
-  paperwork) scores confidence drug IDs    sections              interactions every claim cited
-```
+
+<sub>Teal steps use AI (Claude). Gray steps are plain code and official databases.</sub>
 
 **Grounded, not improvised.** The AI does two jobs only: reading the photos and writing the plain-language explanation. Name normalization, duplicate detection, interaction lookup, and scheduling are deterministic code built on official sources. Every statement links back to the FDA label it came from.
 
